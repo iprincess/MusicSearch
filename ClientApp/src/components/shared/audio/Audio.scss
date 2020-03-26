@@ -1,0 +1,13 @@
+.audio {
+	.preview {
+		color: var(--color-highlight);
+		font-size: .75rem;
+
+		svg {
+			position: relative;
+			top: -2px;
+			height: 20px;
+			fill: var(--color-highlight);
+		}
+	}
+}

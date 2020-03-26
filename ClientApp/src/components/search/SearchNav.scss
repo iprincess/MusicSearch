@@ -1,0 +1,27 @@
+@mixin activeText() {
+	opacity: .56;
+}
+
+.nav.search-nav {
+	padding: 0.5rem;
+	margin-bottom: 1rem;
+	background-color: var(--color-bg-dark);
+	color: var(--color-text-light);
+
+	span,
+	.nav-link {
+		margin-right: 1rem;
+		padding: 5px 0;
+	}
+
+	a,
+	a:visited {
+		text-decoration: none;
+		color: var(--color-text-light);
+	}
+
+	a.active {
+		cursor: default;
+		@include activeText();
+	}
+}

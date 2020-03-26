@@ -1,0 +1,30 @@
+.card {
+  padding: 10px;
+  overflow: hidden;
+  height: 100%;
+  border: 1px solid var(--color-light);
+
+  img {
+    text-align: center;
+    margin: 0 auto;
+    align-self: flex-start;
+  }
+  .card-body {
+    width: 100%;
+    line-height: normal;
+  }
+
+  .card-title {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  .card-text {
+    margin-top: 0;
+    font-size: 14px;
+  }
+}
+
+a.card {
+  text-decoration: none;
+  color: var(--color-text-dark);
+}

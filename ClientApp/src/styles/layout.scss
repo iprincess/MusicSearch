@@ -1,0 +1,39 @@
+body {
+	padding: 10px 0;
+}
+
+.flex-container {
+	display: flex;
+
+	&.flex-col {
+			flex-direction: column;
+	}
+
+	&.flex-wrap {
+			flex-wrap: wrap;
+	}
+
+	&.flex-nowrap {
+			flex-wrap: nowrap;
+	}
+
+	&.stretch-content {
+		align-content: stretch;
+	}
+
+	&.fill {
+			justify-content: space-between;
+	}
+
+	&.center-content {
+			justify-content: center;
+	}
+
+	&.stretch-items {
+			align-items: stretch;
+	}
+
+	&.center-items {
+			align-items: center;
+	}
+}
