@@ -8,36 +8,29 @@ const searchTypes = {
   song: 'song'
 };
 
-const getEncodedUrl = (urlTemplate, query) => {
-	const encodedQuery = encodeURIComponent(query);
-	const url = urlTemplate.replace(/{query}/g, encodedQuery);
-	return url;
-};
-
 const searchAlbumAsync = (query): Promise<IAlbumResponse> => {
-  // https://itunes.apple.com/search?term=jack+johnson&entity=album&limit=25
-  const urlTemplate = 'search?term={query}&media=music&entity=album&attribute=albumTerm&limit=25';
-  const url = getEncodedUrl(urlTemplate, query);
+  const url = '/music/album';
+  const params = { query: query };
 
-  return musicService.get<IAlbumResponse>(url).then((response) => {
+  return musicService.get<IAlbumResponse>(url, params).then((response) => {
     return response;
   });
 };
 
 const searchArtistAsync = (query): Promise<IArtistResponse> => {
-  const urlTemplate = 'search?term={query}&media=music&entity=musicArtist&attribute=artistTerm&limit=25';
-  const url = getEncodedUrl(urlTemplate, query);
+  const url = '/music/artist';
+  const params = { query: query };
 
-  return musicService.get<IArtistResponse>(url).then((response) => {
+  return musicService.get<IArtistResponse>(url, params).then((response) => {
     return response;
   });
 };
 
 const searchSongAsync = (query): Promise<ISongResponse> => {
-  const urlTemplate = 'search?term={query}&media=music&entity=song&attribute=songTerm&limit=25';
-  const url = getEncodedUrl(urlTemplate, query);
+  const url = '/music/song';
+  const params = { query: query };
 
-  return musicService.get<ISongResponse>(url).then((response) => {
+  return musicService.get<ISongResponse>(url, params).then((response) => {
     return response;
   });
 };

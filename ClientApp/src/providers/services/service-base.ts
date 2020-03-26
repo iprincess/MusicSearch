@@ -25,7 +25,7 @@ const getAxiosConfig = (path: string, params?: object, method:Method="GET") : Ax
 }
 
 const apiInstance = axios.create({
-    baseURL: "https://itunes.apple.com/"
+    baseURL: "/"
 });
 
 export function apiRequest<T> (method:Method, path: string, params?:object): Promise<AxiosResponse<T>> {

@@ -1,12 +1,13 @@
+using System;
 using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
+using MusicSearch.Interfaces;
+using MusicSearch.Services;
 
 namespace MusicSearch
 {
@@ -22,14 +23,10 @@ namespace MusicSearch
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddRazorPages().AddRazorRuntimeCompilation();
 
-            // In production, the React files will be served from this directory
-            //services.AddSpaStaticFiles(configuration =>
-            //{
-            //    configuration.RootPath = "ClientApp/dist";
-            //});
+            // registers the client and the service in one call
+            services.AddHttpClient<ISearchService, SearchService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,8 +54,6 @@ namespace MusicSearch
                 RequestPath = "/ClientApp"
             });
 
-            //app.UseSpaStaticFiles();
-
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
@@ -73,24 +68,6 @@ namespace MusicSearch
                     pattern: "{*url}",
                     defaults: new { controller = "Home", action = "Index" });
             });
-
-            //app.UseEndpoints(endpoints =>
-            //{
-            //    endpoints.MapControllerRoute(
-            //        name: "default",
-            //        pattern: "{controller}/{action=Index}/{id?}");
-            //});
-
-            //app.UseSpa(spa =>
-            //{
-            //    spa.Options.SourcePath = "ClientApp";
-
-            //    if (env.IsDevelopment())
-            //    {
-            //        //spa.UseReactDevelopmentServer(npmScript: "start");
-            //    }
-            //});
-
 
         }
     }
