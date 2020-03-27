@@ -235,3 +235,4 @@ _Pvt_Extensions
 # webpack generated files
 /ClientApp/dist/**/*
 /Views/Home/**/*
+*.code-workspace
