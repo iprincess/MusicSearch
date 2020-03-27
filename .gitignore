@@ -180,7 +180,7 @@ ClientBin/
 *.publishsettings
 orleans.codegen.cs
 
-*/node_modules
+**/node_modules
 
 # RIA/Silverlight projects
 Generated_Code/
@@ -233,6 +233,10 @@ _Pvt_Extensions
 
 
 # webpack generated files
-/ClientApp/dist/**/*
-/Views/Home/**/*
+/MusicSearchApp/ClientApp/dist/**/*
+/MusicSearchApp/Views/Home/**/*
+
+
 *.code-workspace
+
+
