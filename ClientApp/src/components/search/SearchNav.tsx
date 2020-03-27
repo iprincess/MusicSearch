@@ -1,6 +1,7 @@
 import './SearchNav.scss';
 import React from 'react';
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useParams } from 'react-router-dom';
+import { isMobile } from '../../providers/config-provider';
 
 export const SearchNav = () => {
 	const params = useParams();
@@ -29,7 +30,7 @@ export const SearchNav = () => {
 
   return (
 		<nav className="nav search-nav flex-container center-items center-content">
-			<span>Search by:</span>
+			{!isMobile && <span>Search by:</span>}
 			{navLinks}
 		</nav>
   );

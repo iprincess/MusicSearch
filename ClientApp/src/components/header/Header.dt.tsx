@@ -6,7 +6,7 @@ export const Header = () => {
   return (
     <header className="flex-container flex-col center-items">   
       <Logo /> 
-      <h1 className="sr-only">Apple Music Search </h1>  
+      <h1>Apple Music Search </h1>  
     </header>
   );
 }
