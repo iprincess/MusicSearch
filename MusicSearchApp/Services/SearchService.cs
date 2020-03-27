@@ -15,7 +15,7 @@ namespace MusicSearch.Services
 
 		public SearchService(HttpClient client)
 		{
-			client.BaseAddress = new Uri("https://itunes.apple.com/search");
+			client.BaseAddress = new Uri("https://itunes.apple.com/search/");
 
 			Client = client;
 		}
