@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
@@ -44,15 +45,23 @@ namespace MusicSearch
             }
 
             app.UseHttpsRedirection();
+
+            /* --- static files */
+
+            FileExtensionContentTypeProvider provider = new FileExtensionContentTypeProvider();
+            provider.Mappings[".webmanifest"] = "application/manifest+json";
             
             // wwwroot default
             app.UseStaticFiles();
             // ClientApp
             app.UseStaticFiles(new StaticFileOptions{
+                ContentTypeProvider = provider,
                 FileProvider = new PhysicalFileProvider(
                     Path.Combine(Directory.GetCurrentDirectory(), "ClientApp")),
                 RequestPath = "/ClientApp"
             });
+
+            /* --- end static files */
 
             app.UseRouting();
 
